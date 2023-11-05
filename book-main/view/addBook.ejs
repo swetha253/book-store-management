@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("../static/addimg.png");
+            background-size:cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            background-color: lightblue;
+            text-align: center;
+        }
+
+        form {
+            background-color: lavenderblush;
+            max-width: 350px;
+            margin: 79px auto;
+            padding: 52px;
+            border-radius: 50px;
+            box-shadow: 5px 5px 10px rgb(156, 43, 92);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: lightseagreen;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        input::placeholder {
+            color: darkslategrey;
+        }
+
+        body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .all-books {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Default styles for screens wider than 768px */
+body {
+    background-color: lightblue;
+}
+
+/* Media query for screens 768px wide or narrower */
+@media (max-width: 768px) {
+    body {
+        background-color: lightcoral;
+    }
+}
+
+    </style>
+    <script>
+        function showSuccessMessage() {
+            // Get the form input values
+            const imageValue = document.querySelector('input[name="image"]').value;
+            const titleValue = document.querySelector('input[name="title"]').value;
+            const authorValue = document.querySelector('input[name="author"]').value;
+            const isbnValue = document.querySelector('input[name="isbn"]').value;
+            const priceValue = document.querySelector('input[name="price"]').value;
+            const quantityValue = document.querySelector('input[name="quantity"]').value;
+
+            // Check if any of the values are null or empty
+            if (!imageValue || !titleValue || !authorValue || !isbnValue || !priceValue || !quantityValue) {
+                alert("Please fill in all fields.");
+                return false; // Prevent form submission
+            }
+
+            // If all values are provided, show the success message
+            alert("Book added successfully!");
+            return true; // Allow form submission
+        }
+    </script>
+</head>
+
+<body>
+    <%- include('layout_admin') %>
+        <div class="all-books">
+            <form action="/add-book" method="POST" onsubmit="showSuccessMessage()">
+                <h2 style="margin: -15px 4px 16px -1px;">Add Books</h2>
+                <input type="text" name="image" placeholder="Enter Image Link" />
+                <input type="text" name="title" placeholder="Enter Book Title" />
+                <input type="text" name="author" placeholder="Enter Author Name" />
+                <input type="text" name="isbn" placeholder="Enter ISBN" />
+                <input type="text" name="price" placeholder="Enter Book Price" />
+                <input type="text" name="quantity" placeholder="Enter Quantity" />
+                <button>Submit</button>
+            </form>
+        </div>
+</body>
+
+</html>

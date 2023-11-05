@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>Login Form</title>
+    </head>
+    <style>
+        body {
+            background-image: url("../static/addimg.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 95vh;
+            margin: 0;
+        }
+    
+        form {
+                background: lavenderblush;
+                padding: 20px;
+                border: 2px solid black;
+                border-radius: 5px;
+                box-shadow: 10px 10px 15px rgb(185, 26, 137);
+                min-width: 400px;
+                max-width: 70px;                
+                text-align: center;
+            }
+        h1 {
+            color: #333;
+        }
+    
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            outline:none;
+        }
+    
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        button:hover {
+            background-color: #555;
+        }
+    
+        div {
+            padding-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+    
+        a {
+            color: purple;
+            text-decoration: none;
+        }
+    
+        a:hover {
+            text-decoration: underline;
+        }
+        .line1{
+            margin-bottom:10px;
+            margin-top:5px;
+        }
+    </style>
+    <body>
+        <h1 style="color: mediumturquoise;">Book-Store Login</h1>
+        <form action="/verify-login" method="POST">
+            <h1>Login Form</h1>
+            <input type="email" name="email" placeholder="Enter your Email"/>
+            <input type="password" name="password" placeholder="Enter your Password"/>
+            <button>Login</button>
+            <div class="line1" style="font-size:17px;">New Account <a href="/register" style="color:black;margin-left:3px;">Register Here</a></div>
+
+            <a href="/admin-login" style="color:black;font-size:17px;">Admin Login</a>
+        </form>
+    </body>
+</html>

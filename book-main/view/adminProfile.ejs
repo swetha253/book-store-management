@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Profile Page</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("../static/profimg.jpg");
+    background-size: cover;
+}
+
+h1 {
+    background-color: lightblue;
+    color: black;
+    padding: 20px;
+    margin: 0;
+}
+
+p {
+    font-size: 25px;
+    margin: 20px;
+    padding: 10px;
+    color: black;
+    text-align: center;
+}
+
+.action-button {
+    background-color: blue;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 0 15px;
+    transition: opacity 0.3s ease;
+}
+
+.action-button:hover {
+    opacity: 0.8;
+}
+
+.logout-button {
+    background-color: blue;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 0 15px;
+    transition: opacity 0.3s ease;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+}
+
+/* Add responsive design using media queries if needed */
+
+    </style>
+</head>
+
+<body>
+    <%- include('layout_admin') %>
+        <h1>Admin Profile Page</h1>
+        <h2 style="text-align: center;">Admin Panel</h2>
+        <p>Name: <%=user_details.name%>
+        </p>
+        <p>Email: <%=user_details.email%>
+        </p>
+        <div class="buttons">
+            <a href="/all-books"><button class="action-button">All Books</button></a>
+            <a href="/get-add-book"><button class="action-button">Add Books</button></a>
+            <form action="/logout" method="POST">
+                <button type="submit" class="logout-button">Log Out</button>
+            </form>
+        </div>
+</body>
+
+</html>
